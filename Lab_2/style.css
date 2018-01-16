@@ -1,0 +1,145 @@
+.slide {
+    background-color: azure;
+    width: 80%;
+    height: 150px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    border: 5px solid rgb(94, 65, 47);
+    align-items: center;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    height: 70%;
+    text-align: left;
+    word-wrap: break-word;
+    
+}
+
+
+.slide.active {
+    display: block;
+}
+
+.left-board {
+    background-color: rgb(252, 235, 182);
+    overflow: auto;
+    height: 583px;
+    padding-top: 25px;
+    border-right: 10px solid rgb(94, 65, 47);
+    border-top: 10px solid rgb(94, 65, 47);
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+
+}
+
+
+
+.container {
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.col-1 {
+    width: 25%;
+}
+
+.col-2 {
+    width: 75%;
+}
+
+.col-3 {
+    width: 100%;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(201, 228, 255);
+}
+
+.content .slide {
+    width: 70%;
+    height: 50%;
+    align-items: center;
+    margin: 15%;
+    
+}
+
+.left-board .slide:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 30px 3px orange;
+
+}
+
+p.head {
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+p.foot {
+    font-size: 8px;
+}
+
+.content p.head {
+    font-size: 45px;
+    font-weight: bold;
+    margin: 0px 10px 10px 10px;
+}
+
+.content p.foot {
+    font-size: 25px;
+    margin: 0px 10px 10px 10px;
+}
+
+.form {
+    background-color: rgb(94, 65, 47);
+    padding-top: 10px;
+    padding-left: 10px;
+    
+
+}
+
+input{
+    background-color: rgb(252, 235, 182);
+    margin-bottom: 10px;
+}
+
+textarea {
+    overflow-x: hidden;
+    margin-left: 10px;
+    background-color: rgb(252, 235, 182);
+}
+
+#btn1 {
+    border: 2px solid white;
+    border-radius: 6px;
+    font-family: fantasy;
+    font-size: 40px;
+}
+
+label {
+    margin-top: 10px;
+    padding-left: 10px;
+    color: white;
+}
