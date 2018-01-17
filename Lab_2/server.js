@@ -1,7 +1,5 @@
-$(document).ready(function(){
-   
-    var elements = document.querySelectorAll('ul > li:last-child');
-    
+$(document).ready(function () {
+
     /*
     $('#btn2').on('click',function(){
                 var $slides = $('.s');
@@ -26,15 +24,65 @@ $(document).ready(function(){
         }
     });
     */
-    
-    $("#btn1").on('click', function(){
+
+    var allSlides = 0;
+
+    var mrId = 0;
+
+    $("#btn1").on('click', function () {
         var firstInput = document.getElementById("inputHead").value;
         var secondInput = document.getElementById("inputFoot").value;
-        $(".left-board").append("<div class='slide'><div class='header'><p class='head'>"+firstInput+"</p></div><div class='footer'><p class='foot'>"+secondInput+"</p></div></div>");
-    });
-    
-    $(".left-board").on('click','.slide',function(){
-        $(".content").html("<div class='slide'>"+$(this).html()+"</div>");
+        mrId++;
+        $(".left-board").append("<div class='slide' id='" + mrId + "'><div class='header'><p class='head'>" + firstInput + "</p></div><div class='footer'><p class='foot'>" + secondInput + "</p></div></div>");
+
+        var $slides = $(".left-board .slide");
+        $slides.removeClass('active');
+        $('.left-board .slide:last').addClass('active');
+
+
+
     });
 
+
+    addEventListener("keydown", function (e) {
+        var currentSlide = $(".active").attr("id");
+        switch (e.keyCode) {
+            case 38:
+
+                if (currentSlide > 1) {
+                    $(".left-board .slide").removeClass('active');
+                    $('.left-board .slide[id=' + (currentSlide - 1) + ']').addClass('active');
+                    $('.content').html("<div class='slide'>" + $('.left-board .slide.active').html() + "</div>");
+                }
+
+                break;
+            case 40:
+
+                if (currentSlide >= 1 && currentSlide < mrId) {
+                    $(".left-board .slide").removeClass('active');
+                    currentSlide++;
+                    $('.left-board .slide[id=' + currentSlide + ']').addClass('active');
+                    $('.content').html("<div class='slide'>" + $('.left-board .slide.active').html() + "</div>");
+                }
+
+                break;
+        }
+    })
+
+
+    $(".left-board").on('click', '.slide', function () {
+        var currentSlide = $(this).attr("id");
+        $(".left-board .slide").removeClass('active');
+        $('.left-board .slide[id=' + currentSlide + ']').addClass('active');
+        $(".content").html("<div class='slide'>" + $(this).html() + "</div>");
+    });
+
+
+
+    $("#btn2").on('click', function () {
+
+        document.querySelector(".content .slide").webkitRequestFullscreen();
+        
+        
+    });
 });
